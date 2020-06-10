@@ -14,15 +14,15 @@ The script's are ordered by the target operating system where they have been tes
 ### CleanUserTemp.ps1
 Can be used to clean the users temp folders on Windows. Where I am using this
 is in scheduled tasks or as a Microsoft Configuration Manager CI. The script 
-will by default only clean out files older than 14 days.
-[x] Basic cleanup for the user temp folder
-[ ] User notification of the cleanup
-[ ] Possibility to do different cleanups, like temp or with recycle bin
-[ ] Trigger from low diskspace
+will by default only clean out files older than 14 days.  
+[x] Basic cleanup for the user temp folder  
+[ ] User notification of the cleanup  
+[ ] Possibility to do different cleanups, like temp or with recycle bin  
+[ ] Trigger from low diskspace  
 ### CleanWinTemp.ps1
 Used to clean the Operating System temp folder. As with the user script only
-files older than 14 days will be removed. 
-[x] Basic cleanup for the OS temp folder
-[ ] User notification for the cleanup
-[ ] Allow other cleaning options
-[ ] Trigger from low diskspace
+files older than 14 days will be removed.   
+[x] Basic cleanup for the OS temp folder  
+[ ] User notification for the cleanup  
+[ ] Allow other cleaning options  
+[ ] Trigger from low diskspace  
