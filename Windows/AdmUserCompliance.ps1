@@ -20,7 +20,7 @@ $admGroupContent = Get-LocalGroupMember -Name "Administrators"
 # Get rid of the domain name from the username string
 foreach ($name in $admGroupContent)
 {
-$usernames += @($name -replace ".*\\")
+    $usernames += @($name -replace ".*\\")
 
 }
 
@@ -28,25 +28,26 @@ $usernames += @($name -replace ".*\\")
 foreach( $user in $usernames )
 {
 #Loop and compare the user and the exception
-foreach ($exception in $groupExceptions)
-{
-if ($user -like $exception)
-{
-# If user is found then set compliance to true, and break the
-# loop to check the next exception
-$isCompliant = "Compliant"
-break
+    foreach ($exception in $groupExceptions)
+    {
+        if ($user -like $exception)
+        {
+            # If user is found then set compliance to true, and break the
+            # loop to check the next exception
+            $isCompliant = "Compliant"
+            break
+        }
+        else
+        {
+            $isCompliant = "NotCompliant"
+        }
+    }
+    # If the loop is done and the system is not compliant we can break out
+    # of the main loop because the system is already non-compliant
+    if ($isCompliant -eq "NotCompliant")
+    {
+        break
+    }
 }
-else
-{
-$isCompliant = "NotCompliant"
-}
-}
-# If the loop is done and the system is not compliant we can break out
-# of the main loop because the system is already non-compliant
-if ($isCompliant -eq "NotCompliant")
-{
-break
-}
-}
+
 return $isCompliant
